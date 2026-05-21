@@ -42,7 +42,7 @@ JWT_SECRET=sai_backend_assignment_super_secret_key_2026
 
 ## Swagger Docs
 
-http://localhost:5000/api-docs
+https://task-manager-zm40.onrender.com/api-docs
 
 ## Scalability Considerations
 
