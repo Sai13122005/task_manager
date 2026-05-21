@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import API from "../services/api";
 
 function Dashboard() {
-
+    const user = JSON.parse(
+        localStorage.getItem("user")
+    );
     const [tasks, setTasks] = useState([]);
 
     const [title, setTitle] = useState("");
 
     const [description, setDescription] = useState("");
 
-
+    const navigate = useNavigate();
 
     // FETCH TASKS
     const fetchTasks = async () => {
@@ -91,8 +93,9 @@ function Dashboard() {
     const logout = () => {
 
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
 
-        window.location.href = "/login";
+        navigate("/login");
     };
     
 
@@ -101,6 +104,9 @@ function Dashboard() {
         <div style={{ padding: "20px" }}>
 
             <h2>Dashboard</h2>
+            <h3>
+                Welcome, {user?.name}
+            </h3>
 
             <button onClick={logout}>
                 Logout
