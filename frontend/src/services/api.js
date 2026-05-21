@@ -1,11 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "http://localhost:5000/api/v1"
+    baseURL: "https://task-manager-zm40.onrender.com/api/v1"
 });
 
-
-// Attach token automatically
 API.interceptors.request.use((req) => {
 
     const token = localStorage.getItem("token");
