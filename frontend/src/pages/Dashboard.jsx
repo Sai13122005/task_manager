@@ -101,80 +101,101 @@ function Dashboard() {
 
     return (
 
-        <div style={{ padding: "20px" }}>
+    <div className="container mt-4">
 
-            <h2>Dashboard</h2>
-            <h3>
-                Welcome, {user?.name}
-            </h3>
+        <div className="d-flex justify-content-between align-items-center mb-4">
 
-            <button onClick={logout}>
+            <div>
+                <h2>Dashboard</h2>
+
+                <h5>
+                    Welcome, {user?.name}
+                </h5>
+            </div>
+
+            <button
+                className="btn btn-danger"
+                onClick={logout}
+            >
                 Logout
             </button>
-            <br /><br />
+
+        </div>
+
+
+        <div className="card p-4 shadow mb-4">
+
             <input
                 type="text"
                 placeholder="Task title"
+                className="form-control mb-3"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
 
-            <br /><br />
-
             <input
                 type="text"
                 placeholder="Description"
+                className="form-control mb-3"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
 
-            <br /><br />
-
-            <button onClick={createTask}>
+            <button
+                className="btn btn-primary"
+                onClick={createTask}
+            >
                 Add Task
             </button>
 
+        </div>
 
-            <hr />
 
+        {
+            tasks.map((task) => (
 
-            {
-                tasks.map((task) => (
+                <div
+                    key={task._id}
+                    className="card shadow-sm p-3 mb-3"
+                >
 
-                    <div key={task._id}>
+                    <h4>{task.title}</h4>
 
-                        <h3>{task.title}</h3>
+                    <p>{task.description}</p>
 
-                        <p>{task.description}</p>
+                    <p>
+                        Status:
+                        {
+                            task.status === "completed"
+                                ? " ✅ Completed"
+                                : " ⏳ Pending"
+                        }
+                    </p>
 
-                        <p>
-                            Status:
-                            {
-                                task.status === "completed"
-                                    ? " ✅ Completed"
-                                    : " ⏳ Pending"
-                            }
-                        </p>
+                    <div className="d-flex gap-2">
+
                         <button
+                            className="btn btn-success"
                             onClick={() => markDone(task._id)}
                         >
                             Done
                         </button>
+
                         <button
+                            className="btn btn-danger"
                             onClick={() => deleteTask(task._id)}
                         >
                             Delete
                         </button>
 
-                        <hr />
-
                     </div>
-                ))
-            }
 
-        </div>
-    
-    );
+                </div>
+            ))
+        }
+
+    </div>
+);
 }
 
 export default Dashboard;

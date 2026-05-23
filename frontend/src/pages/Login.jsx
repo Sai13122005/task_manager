@@ -54,46 +54,62 @@ function Login() {
         }
     };
 
-    return (
+   return (
 
-        <div style={{ padding: "20px" }}>
+    <div className="container mt-5">
 
-            <h2>Login</h2>
+        <div className="row justify-content-center">
 
-            <form onSubmit={handleSubmit}>
+            <div className="col-md-5">
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                />
+                <div className="card shadow p-4">
 
-                <br /><br />
+                    <h2 className="text-center mb-4">
+                        Login
+                    </h2>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                />
+                    <form onSubmit={handleSubmit}>
 
-                <br /><br />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            className="form-control mb-3"
+                            onChange={handleChange}
+                        />
 
-                <button type="submit">
-                    Login
-                </button>
-                
-                <p style={{ marginTop: "10px" }}>
-                    Don't have an account?{" "}
-                    <Link to="/register">
-                        Register
-                    </Link>
-                </p>
-            </form>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            className="form-control mb-3"
+                            onChange={handleChange}
+                        />
+
+                        <button
+                            type="submit"
+                            className="btn btn-primary w-100"
+                        >
+                            Login
+                        </button>
+
+                        <p className="mt-3 text-center">
+                            Don't have an account?{" "}
+                            <Link to="/register">
+                                Register
+                            </Link>
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
 
         </div>
-    );
+
+    </div>
+);
 }
 
 export default Login;

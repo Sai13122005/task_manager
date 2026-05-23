@@ -56,56 +56,70 @@ function Register() {
         }
     };
 
-    return (
+   return (
 
-        <div style={{ padding: "20px" }}>
+    <div className="container mt-5">
 
-            <h2>Register</h2>
+        <div className="row justify-content-center">
 
-            <form onSubmit={handleSubmit}>
+            <div className="col-md-5">
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={handleChange}
-                />
+                <div className="card shadow p-4">
 
-                <br /><br />
+                    <h2 className="text-center mb-4">
+                        Register
+                    </h2>
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                />
+                    <form onSubmit={handleSubmit}>
 
-                <br /><br />
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            className="form-control mb-3"
+                            onChange={handleChange}
+                        />
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            className="form-control mb-3"
+                            onChange={handleChange}
+                        />
 
-                <br /><br />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            className="form-control mb-3"
+                            onChange={handleChange}
+                        />
 
-                <button type="submit">
-                    Register
-                </button>
-                <br /><br />
-                <p>
-                    Already have an account?
-                    <Link to="/login">
-                        Login
-                    </Link>
-                </p>
+                        <button
+                            type="submit"
+                            className="btn btn-success w-100"
+                        >
+                            Register
+                        </button>
 
-            </form>
+                        <p className="mt-3 text-center">
+                            Already have an account?{" "}
+                            <Link to="/login">
+                                Login
+                            </Link>
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
 
         </div>
-    );
+
+    </div>
+);
 }
 
 export default Register;
