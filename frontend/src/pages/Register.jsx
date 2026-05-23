@@ -58,63 +58,61 @@ function Register() {
 
    return (
 
-    <div className="container mt-5">
+    <div className="auth-container">
 
-        <div className="row justify-content-center">
+        <div className="card-dark auth-card">
 
-            <div className="col-md-5">
+            <h1 className="text-center mb-4">
+                Create Account
+            </h1>
 
-                <div className="card shadow p-4">
+            <form onSubmit={handleSubmit}>
 
-                    <h2 className="text-center mb-4">
-                        Register
-                    </h2>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Name"
+                    className="form-control mb-3"
+                    onChange={handleChange}
+                />
 
-                    <form onSubmit={handleSubmit}>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    className="form-control mb-3"
+                    onChange={handleChange}
+                />
 
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            className="form-control mb-3"
-                            onChange={handleChange}
-                        />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    className="form-control mb-4"
+                    onChange={handleChange}
+                />
 
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            className="form-control mb-3"
-                            onChange={handleChange}
-                        />
+                <button
+                    type="submit"
+                    className="btn btn-success btn-modern w-100"
+                >
+                    Register
+                </button>
 
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            className="form-control mb-3"
-                            onChange={handleChange}
-                        />
+                <p className="text-center mt-4">
 
-                        <button
-                            type="submit"
-                            className="btn btn-success w-100"
-                        >
-                            Register
-                        </button>
+                    Already have an account?{" "}
 
-                        <p className="mt-3 text-center">
-                            Already have an account?{" "}
-                            <Link to="/login">
-                                Login
-                            </Link>
-                        </p>
+                    <Link
+                        to="/login"
+                        className="link-light"
+                    >
+                        Login
+                    </Link>
 
-                    </form>
+                </p>
 
-                </div>
-
-            </div>
+            </form>
 
         </div>
 

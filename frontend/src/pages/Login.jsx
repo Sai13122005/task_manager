@@ -56,55 +56,53 @@ function Login() {
 
    return (
 
-    <div className="container mt-5">
+    <div className="auth-container">
 
-        <div className="row justify-content-center">
+        <div className="card-dark auth-card">
 
-            <div className="col-md-5">
+            <h1 className="text-center mb-4">
+                Welcome Back
+            </h1>
 
-                <div className="card shadow p-4">
+            <form onSubmit={handleSubmit}>
 
-                    <h2 className="text-center mb-4">
-                        Login
-                    </h2>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    className="form-control mb-3"
+                    onChange={handleChange}
+                />
 
-                    <form onSubmit={handleSubmit}>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    className="form-control mb-4"
+                    onChange={handleChange}
+                />
 
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            className="form-control mb-3"
-                            onChange={handleChange}
-                        />
+                <button
+                    type="submit"
+                    className="btn btn-primary btn-modern w-100"
+                >
+                    Login
+                </button>
 
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            className="form-control mb-3"
-                            onChange={handleChange}
-                        />
+                <p className="text-center mt-4">
 
-                        <button
-                            type="submit"
-                            className="btn btn-primary w-100"
-                        >
-                            Login
-                        </button>
+                    Don't have an account?{" "}
 
-                        <p className="mt-3 text-center">
-                            Don't have an account?{" "}
-                            <Link to="/register">
-                                Register
-                            </Link>
-                        </p>
+                    <Link
+                        to="/register"
+                        className="link-light"
+                    >
+                        Register
+                    </Link>
 
-                    </form>
+                </p>
 
-                </div>
-
-            </div>
+            </form>
 
         </div>
 

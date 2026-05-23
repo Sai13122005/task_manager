@@ -101,33 +101,43 @@ function Dashboard() {
 
     return (
 
-    <div className="container mt-4">
+    <div className="dashboard-container">
 
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="card-dark p-4 mb-4">
 
-            <div>
-                <h2>Dashboard</h2>
+            <div className="d-flex justify-content-between align-items-center">
 
-                <h5>
-                    Welcome, {user?.name}
-                </h5>
+                <div>
+
+                    <h1>Task Dashboard</h1>
+
+                    <h5 className="text-light">
+                        Welcome, {user?.name}
+                    </h5>
+
+                </div>
+
+                <button
+                    className="btn btn-danger btn-modern"
+                    onClick={logout}
+                >
+                    Logout
+                </button>
+
             </div>
-
-            <button
-                className="btn btn-danger"
-                onClick={logout}
-            >
-                Logout
-            </button>
 
         </div>
 
 
-        <div className="card p-4 shadow mb-4">
+        <div className="card-dark p-4 mb-4">
+
+            <h3 className="mb-3">
+                Create Task
+            </h3>
 
             <input
                 type="text"
-                placeholder="Task title"
+                placeholder="Task Title"
                 className="form-control mb-3"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -135,14 +145,14 @@ function Dashboard() {
 
             <input
                 type="text"
-                placeholder="Description"
+                placeholder="Task Description"
                 className="form-control mb-3"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
 
             <button
-                className="btn btn-primary"
+                className="btn btn-primary btn-modern"
                 onClick={createTask}
             >
                 Add Task
@@ -151,48 +161,57 @@ function Dashboard() {
         </div>
 
 
-        {
-            tasks.map((task) => (
+        <div className="row">
 
-                <div
-                    key={task._id}
-                    className="card shadow-sm p-3 mb-3"
-                >
+            {
+                tasks.map((task) => (
 
-                    <h4>{task.title}</h4>
+                    <div
+                        className="col-md-6 col-lg-4 mb-4"
+                        key={task._id}
+                    >
 
-                    <p>{task.description}</p>
+                        <div className="card-dark p-4 task-card">
 
-                    <p>
-                        Status:
-                        {
-                            task.status === "completed"
-                                ? " ✅ Completed"
-                                : " ⏳ Pending"
-                        }
-                    </p>
+                            <h4>{task.title}</h4>
 
-                    <div className="d-flex gap-2">
+                            <p className="text-light">
+                                {task.description}
+                            </p>
 
-                        <button
-                            className="btn btn-success"
-                            onClick={() => markDone(task._id)}
-                        >
-                            Done
-                        </button>
+                            <p>
+                                {
+                                    task.status === "completed"
+                                        ? "✅ Completed"
+                                        : "⏳ Pending"
+                                }
+                            </p>
 
-                        <button
-                            className="btn btn-danger"
-                            onClick={() => deleteTask(task._id)}
-                        >
-                            Delete
-                        </button>
+                            <div className="d-flex gap-2">
+
+                                <button
+                                    className="btn btn-success btn-modern"
+                                    onClick={() => markDone(task._id)}
+                                >
+                                    Done
+                                </button>
+
+                                <button
+                                    className="btn btn-danger btn-modern"
+                                    onClick={() => deleteTask(task._id)}
+                                >
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </div>
 
                     </div>
+                ))
+            }
 
-                </div>
-            ))
-        }
+        </div>
 
     </div>
 );
