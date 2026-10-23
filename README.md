@@ -34,12 +34,6 @@ npm run dev
 cd frontend
 npm install
 npm run dev
-## .env
-
-PORT=5000
-MONGO_URI= mongodb+srv://24mcce36_db_user:TMKpEOJHikzf3uxL@cluster0.ukaotcf.mongodb.net/?appName=Cluster0
-JWT_SECRET=sai_backend_assignment_super_secret_key_2026
-
 ## Swagger Docs
 
 https://task-manager-zm40.onrender.com/api-docs
